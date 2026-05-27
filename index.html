@@ -5,17 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kakacyber - Your Online Trusted Assistant</title>
     
-    <link rel="preload" href="https://i.imgur.com/placeholder-kakacyber.png" as="image" type="image/png">
+    <link rel="preload" href="https://kakacyber.co.ke/logo.png" as="image" type="image/png">
 
     <style>
-        body { 
-            font-family: 'Segoe UI', sans-serif; 
-            margin: 0; 
-            background: #f4f6f9; 
-            color: #333; 
+        :root {
+            --primary-blue: #00b4ff;
+            --gradient-blue: linear-gradient(135deg, #1e3a8a, #00b4ff, #7b00ff);
         }
+
+        body.light {
+            --bg: #f4f6f9;
+            --text: #333;
+            --card-bg: white;
+            --accent: #1e3a8a;
+        }
+        body.dark {
+            --bg: #0f172a;
+            --text: #e2e8f0;
+            --card-bg: #1e2937;
+            --accent: #00b4ff;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            transition: background 0.3s, color 0.3s;
+        }
+
         header {
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            background: var(--gradient-blue);
             color: white;
             padding: 15px 20px;
             display: flex;
@@ -23,12 +43,42 @@
             justify-content: center;
             gap: 15px;
             flex-wrap: wrap;
+            position: relative;
         }
+
+        .theme-toggle {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
         .logo-container { display: flex; align-items: center; gap: 12px; }
-        .logo-img { height: 68px; width: auto; max-width: 220px; image-rendering: crisp-edges; }
-        .brand-text { font-size: 28px; font-weight: bold; line-height: 1.1; }
-        .tagline { font-size: 16px; opacity: 0.95; font-weight: 400; }
-        .hero { background: linear-gradient(135deg, #1e40af, #2563eb); color: white; padding: 40px 20px; text-align: center; }
+        .logo-img { height: 75px; width: auto; max-width: 240px; image-rendering: crisp-edges; }
+        .brand-text { 
+            font-size: 28px; 
+            font-weight: bold; 
+            background: linear-gradient(to right, #fff, #a0f0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tagline { font-size: 16px; opacity: 0.95; }
+
+        .hero {
+            background: var(--gradient-blue);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
 
         .services, .recommendations, .contact-email {
             padding: 40px 20px;
@@ -41,104 +91,65 @@
             gap: 18px;
         }
         .service-card {
-            background: white;
+            background: var(--card-bg);
             border-radius: 12px;
             padding: 22px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             text-align: center;
             transition: transform 0.3s;
+            border-top: 4px solid var(--primary-blue);
         }
         .service-card:hover { transform: translateY(-8px); }
-        .service-card h3 { margin: 15px 0 8px; color: #1e3a8a; }
+        .service-card h3 { color: var(--accent); }
 
-        /* WhatsApp Button */
         .whatsapp-btn {
-            background: #22c55e;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
             color: white;
             border: none;
             padding: 13px 24px;
             border-radius: 8px;
             font-size: 16px;
             font-weight: bold;
-            cursor: pointer;
-            margin-top: 15px;
-            width: 100%;
             text-decoration: none;
             display: inline-block;
-        }
-        .whatsapp-btn:hover {
-            background: #16a34a;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 20px;
-        }
-        .testimonial-card {
-            background: #f8fafc;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            border-left: 5px solid #22c55e;
-        }
-        .client-name { font-weight: bold; color: #1e3a8a; }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-        }
-        .form-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; font-weight: 600; color: #1e3a8a; }
-        input, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; }
-        textarea { height: 140px; resize: vertical; }
-        .submit-btn {
-            background: #1e40af;
-            color: white;
-            padding: 14px 32px;
-            font-size: 17px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
             width: 100%;
+            margin-top: 15px;
         }
+
         footer {
-            background: #1e2937;
+            background: #0f172a;
             color: white;
             text-align: center;
             padding: 30px 15px;
         }
     </style>
 </head>
-<body>
+<body class="light">
 
     <header>
         <div class="logo-container">
-            <img src="https://i.imgur.com/placeholder-kakacyber.png" 
+            <img src="https://kakacyber.co.ke/logo.png" 
                  alt="Kakacyber Logo" 
                  class="logo-img"
-                 width="220" height="68"
+                 width="240" height="75"
                  loading="eager" fetchpriority="high" decoding="async">
             <div>
                 <div class="brand-text">kakacyber</div>
                 <div class="tagline">Your Online Trusted Assistant</div>
             </div>
         </div>
+        <button class="theme-toggle" id="themeToggle">🌙</button>
     </header>
 
     <section class="hero">
         <h2>Fast & Reliable Government Services</h2>
         <p>KRA • eCitizen • SHA • NSSF • NTSA • HELB • KUCCPS • TSC & More</p>
-        <p><strong>WhatsApp:</strong> 0780 003131 | 0722 550 917</p>
-        <a href="https://wa.me/254746486377" class="whatsapp-btn" target="_blank">📱 WhatsApp Us Now</a>
+        <p><strong>WhatsApp / Call:</strong> 0746 486 377</p>
+        <a href="https://wa.me/254746486377" class="whatsapp-btn" target="_blank">📱 Chat on WhatsApp</a>
     </section>
 
     <section class="services">
-        <h2 style="text-align:center; color:#1e3a8a; margin-bottom:30px;">Our Services</h2>
+        <h2 style="text-align:center; margin-bottom:30px;">Our Services</h2>
         <div class="service-grid">
             <div class="service-card"><h3>KRA</h3><p>New KRA PIN, Lost KRA PIN, Email Change & Tax Returns</p><a href="https://wa.me/254746486377" class="whatsapp-btn" target="_blank">Choose Option</a></div>
             <div class="service-card"><h3>SHA</h3><p>SHA Registration, Appeals/Punguza Malipo & Status Check</p><a href="https://wa.me/254746486377" class="whatsapp-btn" target="_blank">Choose Option</a></div>
@@ -159,29 +170,50 @@
     </section>
 
     <section class="recommendations">
-        <h2 style="text-align:center; color:#1e3a8a;">What Our Clients Say</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial-card"><p>"Got my KRA PIN and tax returns done in under 30 minutes. Super fast!"</p><div class="client-name">— Jane Muthoni, Westlands</div></div>
-            <div class="testimonial-card"><p>"My new CV helped me get multiple interviews. Excellent work!"</p><div class="client-name">— Kevin Otieno, Nairobi</div></div>
-            <div class="testimonial-card"><p>"Remote passport help was seamless. Highly recommended."</p><div class="client-name">— Mercy Wanjiku, Eastleigh</div></div>
+        <h2 style="text-align:center;">What Our Clients Say</h2>
+        <div class="testimonials-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto;">
+            <div class="testimonial-card" style="background:var(--card-bg); padding:25px; border-radius:12px; border-left:5px solid var(--primary-blue);"><p>"Got my KRA PIN and tax returns done in under 30 minutes. Super fast!"</p><div class="client-name">— Jane Muthoni, Westlands</div></div>
+            <div class="testimonial-card" style="background:var(--card-bg); padding:25px; border-radius:12px; border-left:5px solid var(--primary-blue);"><p>"My new CV helped me get multiple interviews. Excellent work!"</p><div class="client-name">— Kevin Otieno, Nairobi</div></div>
         </div>
     </section>
 
     <section class="contact-email">
-        <h2 style="text-align:center; color:#1e3a8a; margin-bottom:30px;">Send Us an Email</h2>
-        <div class="contact-form">
-            <p style="text-align:center; font-size:18px; margin-bottom:20px;">
-                Prefer to chat on WhatsApp? 
-                <a href="https://wa.me/254746486377" target="_blank" style="color:#22c55e; font-weight:bold;">Click Here</a>
-            </p>
-            <p style="text-align:center; margin-top:20px; color:#555;">Or email us directly at: <strong>kakacyber8@gmail.com</strong></p>
+        <h2 style="text-align:center;">Send Us an Email</h2>
+        <div class="contact-form" style="max-width:600px; margin:0 auto; background:var(--card-bg); padding:30px; border-radius:12px;">
+            <p style="text-align:center; font-size:18px;">Prefer WhatsApp? <a href="https://wa.me/254746486377" target="_blank" style="color:#22c55e;">0746 486 377</a></p>
+            <p style="text-align:center; margin-top:20px;">Or email: <strong>kakacyber8@gmail.com</strong></p>
         </div>
     </section>
 
     <footer>
         <p><strong>Email:</strong> kakacyber8@gmail.com</p>
-        <p><strong>Call/WhatsApp:</strong> <a href="https://wa.me/254746486377" style="color:#22c55e;">0746 486 377</a></p>
+        <p><strong>WhatsApp / Call:</strong> <a href="https://wa.me/254746486377" style="color:#22c55e;">0746 486 377</a></p>
         <p>&copy; 2026 Kakacyber - Your Online Trusted Assistant</p>
     </footer>
+
+    <script>
+        const toggleBtn = document.getElementById('themeToggle');
+        const body = document.body;
+
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark');
+            body.classList.remove('light');
+            toggleBtn.textContent = '☀️';
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            if (body.classList.contains('dark')) {
+                body.classList.remove('dark');
+                body.classList.add('light');
+                toggleBtn.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.add('dark');
+                body.classList.remove('light');
+                toggleBtn.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    </script>
 </body>
   </html>
