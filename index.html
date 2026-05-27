@@ -24,33 +24,12 @@
             gap: 15px;
             flex-wrap: wrap;
         }
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .logo-img {
-            height: 68px;
-            width: auto;
-            max-width: 220px;
-            image-rendering: crisp-edges;
-        }
-        .brand-text {
-            font-size: 28px;
-            font-weight: bold;
-            line-height: 1.1;
-        }
-        .tagline {
-            font-size: 16px;
-            opacity: 0.95;
-            font-weight: 400;
-        }
-        .hero {
-            background: linear-gradient(135deg, #1e40af, #2563eb);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-        }
+        .logo-container { display: flex; align-items: center; gap: 12px; }
+        .logo-img { height: 68px; width: auto; max-width: 220px; image-rendering: crisp-edges; }
+        .brand-text { font-size: 28px; font-weight: bold; line-height: 1.1; }
+        .tagline { font-size: 16px; opacity: 0.95; font-weight: 400; }
+        .hero { background: linear-gradient(135deg, #1e40af, #2563eb); color: white; padding: 40px 20px; text-align: center; }
+
         .services, .recommendations, .contact-email {
             padding: 40px 20px;
             max-width: 1200px;
@@ -69,14 +48,11 @@
             text-align: center;
             transition: transform 0.3s;
         }
-        .service-card:hover {
-            transform: translateY(-8px);
-        }
-        .service-card h3 {
-            margin: 15px 0 8px;
-            color: #1e3a8a;
-        }
-        .btn {
+        .service-card:hover { transform: translateY(-8px); }
+        .service-card h3 { margin: 15px 0 8px; color: #1e3a8a; }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
             background: #22c55e;
             color: white;
             border: none;
@@ -87,10 +63,13 @@
             cursor: pointer;
             margin-top: 15px;
             width: 100%;
+            text-decoration: none;
+            display: inline-block;
         }
-        .btn:hover {
+        .whatsapp-btn:hover {
             background: #16a34a;
         }
+
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -103,10 +82,8 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             border-left: 5px solid #22c55e;
         }
-        .client-name {
-            font-weight: bold;
-            color: #1e3a8a;
-        }
+        .client-name { font-weight: bold; color: #1e3a8a; }
+
         .contact-form {
             max-width: 600px;
             margin: 0 auto;
@@ -115,26 +92,10 @@
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #1e3a8a;
-        }
-        input, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-        }
-        textarea {
-            height: 140px;
-            resize: vertical;
-        }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 600; color: #1e3a8a; }
+        input, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 16px; }
+        textarea { height: 140px; resize: vertical; }
         .submit-btn {
             background: #1e40af;
             color: white;
@@ -144,9 +105,6 @@
             border-radius: 8px;
             cursor: pointer;
             width: 100%;
-        }
-        .submit-btn:hover {
-            background: #1e3a8a;
         }
         footer {
             background: #1e2937;
@@ -163,11 +121,8 @@
             <img src="https://i.imgur.com/placeholder-kakacyber.png" 
                  alt="Kakacyber Logo" 
                  class="logo-img"
-                 width="220"
-                 height="68"
-                 loading="eager"
-                 fetchpriority="high"
-                 decoding="async">
+                 width="220" height="68"
+                 loading="eager" fetchpriority="high" decoding="async">
             <div>
                 <div class="brand-text">kakacyber</div>
                 <div class="tagline">Your Online Trusted Assistant</div>
@@ -179,27 +134,27 @@
         <h2>Fast & Reliable Government Services</h2>
         <p>KRA • eCitizen • SHA • NSSF • NTSA • HELB • KUCCPS • TSC & More</p>
         <p><strong>WhatsApp:</strong> 0780 003131 | 0722 550 917</p>
-        <button class="btn" style="width:auto; padding:14px 40px; font-size:18px;">📱 WhatsApp Us Now</button>
+        <a href="https://wa.me/254746486377" class="whatsapp-btn" target="_blank">📱 WhatsApp Us Now</a>
     </section>
 
     <section class="services">
         <h2 style="text-align:center; color:#1e3a8a; margin-bottom:30px;">Our Services</h2>
         <div class="service-grid">
-            <div class="service-card"><h3>KRA</h3><p>New KRA PIN, Lost KRA PIN, Email Change & Tax Returns</p><button class="btn">Choose Option</button></div>
-            <div class="service-card"><h3>SHA</h3><p>SHA Registration, Appeals/Punguza Malipo & Status Check</p><button class="btn">Choose Option</button></div>
-            <div class="service-card"><h3>NSSF</h3><p>NSSF Registration, Lost NSSF, Statements & Returns</p><button class="btn">Choose Option</button></div>
-            <div class="service-card"><h3>eCitizen</h3><p>Passports, Birth Certificates & Good Conduct</p><button class="btn">Choose Option</button></div>
-            <div class="service-card"><h3>NTSA</h3><p>Smart Driving License, Vehicle Transfer & PSV</p><button class="btn">Choose Option</button></div>
-            <div class="service-card"><h3>HELB</h3><p>HELB Loans, Repayment & Status Check</p><button class="btn">Choose Option</button></div>
-            <div class="service-card"><h3>KUCCPS</h3><p>University & College Placement Services</p><button class="btn">Choose Option</button></div>
-            <div class="service-card"><h3>TSC</h3><p>Teacher Registration, TPD & Payslip</p><button class="btn">Choose Option</button></div>
-            <div class="service-card"><h3>CRB</h3><p>CRB Status, Clearance & Listing Removal</p><button class="btn">Choose Option</button></div>
-            <div class="service-card"><h3>Business</h3><p>Company Registration & Business Permits</p><button class="btn">Choose Option</button></div>
-            <div class="service-card"><h3>KPLC</h3><p>Electricity Connection, Tokens & Bill Queries</p><button class="btn">Choose Option</button></div>
-            <div class="service-card"><h3>KNEC</h3><p>Check results for KCSE, KCPE, KILEA, KJSEA</p><button class="btn">Choose Option</button></div>
-            <div class="service-card"><h3>Printing</h3><p>Passport Photos, Printing & Lamination</p><button class="btn">Choose Option</button></div>
-            <div class="service-card"><h3>Passport</h3><p>New Passport, Renewal & Lost Passport</p><button class="btn">Choose Option</button></div>
-            <div class="service-card"><h3>Jobs</h3><p>Job Applications, CV Writing & Letters</p><button class="btn">Choose Option</button></div>
+            <div class="service-card"><h3>KRA</h3><p>New KRA PIN, Lost KRA PIN, Email Change & Tax Returns</p><a href="https://wa.me/254746486377" class="whatsapp-btn" target="_blank">Choose Option</a></div>
+            <div class="service-card"><h3>SHA</h3><p>SHA Registration, Appeals/Punguza Malipo & Status Check</p><a href="https://wa.me/254746486377" class="whatsapp-btn" target="_blank">Choose Option</a></div>
+            <div class="service-card"><h3>NSSF</h3><p>NSSF Registration, Lost NSSF, Statements & Returns</p><a href="https://wa.me/254746486377" class="whatsapp-btn" target="_blank">Choose Option</a></div>
+            <div class="service-card"><h3>eCitizen</h3><p>Passports, Birth Certificates & Good Conduct</p><a href="https://wa.me/254746486377" class="whatsapp-btn" target="_blank">Choose Option</a></div>
+            <div class="service-card"><h3>NTSA</h3><p>Smart Driving License, Vehicle Transfer & PSV</p><a href="https://wa.me/254746486377" class="whatsapp-btn" target="_blank">Choose Option</a></div>
+            <div class="service-card"><h3>HELB</h3><p>HELB Loans, Repayment & Status Check</p><a href="https://wa.me/254746486377" class="whatsapp-btn" target="_blank">Choose Option</a></div>
+            <div class="service-card"><h3>KUCCPS</h3><p>University & College Placement Services</p><a href="https://wa.me/254746486377" class="whatsapp-btn" target="_blank">Choose Option</a></div>
+            <div class="service-card"><h3>TSC</h3><p>Teacher Registration, TPD & Payslip</p><a href="https://wa.me/254746486377" class="whatsapp-btn" target="_blank">Choose Option</a></div>
+            <div class="service-card"><h3>CRB</h3><p>CRB Status, Clearance & Listing Removal</p><a href="https://wa.me/254746486377" class="whatsapp-btn" target="_blank">Choose Option</a></div>
+            <div class="service-card"><h3>Business</h3><p>Company Registration & Business Permits</p><a href="https://wa.me/254746486377" class="whatsapp-btn" target="_blank">Choose Option</a></div>
+            <div class="service-card"><h3>KPLC</h3><p>Electricity Connection, Tokens & Bill Queries</p><a href="https://wa.me/254746486377" class="whatsapp-btn" target="_blank">Choose Option</a></div>
+            <div class="service-card"><h3>KNEC</h3><p>Check results for KCSE, KCPE, KILEA, KJSEA</p><a href="https://wa.me/254746486377" class="whatsapp-btn" target="_blank">Choose Option</a></div>
+            <div class="service-card"><h3>Printing</h3><p>Passport Photos, Printing & Lamination</p><a href="https://wa.me/254746486377" class="whatsapp-btn" target="_blank">Choose Option</a></div>
+            <div class="service-card"><h3>Passport</h3><p>New Passport, Renewal & Lost Passport</p><a href="https://wa.me/254746486377" class="whatsapp-btn" target="_blank">Choose Option</a></div>
+            <div class="service-card"><h3>Jobs</h3><p>Job Applications, CV Writing & Letters</p><a href="https://wa.me/254746486377" class="whatsapp-btn" target="_blank">Choose Option</a></div>
         </div>
     </section>
 
@@ -215,20 +170,17 @@
     <section class="contact-email">
         <h2 style="text-align:center; color:#1e3a8a; margin-bottom:30px;">Send Us an Email</h2>
         <div class="contact-form">
-            <form action="https://formspree.io/f/your-form-id" method="POST">
-                <div class="form-group"><label for="name">Your Full Name</label><input type="text" id="name" name="name" required></div>
-                <div class="form-group"><label for="email">Your Email Address</label><input type="email" id="email" name="email" required></div>
-                <div class="form-group"><label for="service">Service Needed</label><input type="text" id="service" name="service" placeholder="e.g. KRA Returns, Passport"></div>
-                <div class="form-group"><label for="message">Message / Details</label><textarea id="message" name="message" required></textarea></div>
-                <button type="submit" class="submit-btn">📧 Send Message</button>
-            </form>
+            <p style="text-align:center; font-size:18px; margin-bottom:20px;">
+                Prefer to chat on WhatsApp? 
+                <a href="https://wa.me/254746486377" target="_blank" style="color:#22c55e; font-weight:bold;">Click Here</a>
+            </p>
             <p style="text-align:center; margin-top:20px; color:#555;">Or email us directly at: <strong>kakacyber8@gmail.com</strong></p>
         </div>
     </section>
 
     <footer>
         <p><strong>Email:</strong> kakacyber8@gmail.com</p>
-        <p><strong>Call/WhatsApp:</strong> 0746 486 377 | 0780 003131 | 0722 550 917</p>
+        <p><strong>Call/WhatsApp:</strong> <a href="https://wa.me/254746486377" style="color:#22c55e;">0746 486 377</a></p>
         <p>&copy; 2026 Kakacyber - Your Online Trusted Assistant</p>
     </footer>
 </body>
