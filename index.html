@@ -1,367 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kakacyber - Your Online Cyber Assistant</title>
-  
-  <link rel="icon" type="image/png" href="logo.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-  
-  <style>
-    :root {
-      --primary: #00b4ff;
-      --gradient: linear-gradient(135deg, #00b4ff, #6b00ff);
-      --dark: #0a0a1f;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      background: #f4f7ff;
-      color: #333;
-      line-height: 1.6;
-    }
-    header {
-      background: var(--dark);
-      color: white;
-      position: fixed;
-      width: 100%;
-      z-index: 1000;
-      padding: 1rem 0;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    }
-    nav {
-      max-width: 1300px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 2rem;
-    }
-    .logo img { height: 65px; transition: transform 0.3s; }
-    .logo img:hover { transform: scale(1.05); }
-    .nav-links a {
-      color: white;
-      text-decoration: none;
-      margin-left: 2rem;
-      font-weight: 500;
-    }
-    .nav-links a:hover { color: var(--primary); }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kakacyber - Your Online Trusted Assistant</title>
+    
+    <link rel="preload" href="https://i.imgur.com/placeholder-kakacyber.png" as="image" type="image/png">
 
-    .hero {
-      height: 100vh;
-      background: linear-gradient(rgba(10,10,31,0.85), rgba(10,10,31,0.85)), url('https://picsum.photos/id/1015/2000/1200') center/cover;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-      margin-top: 70px;
-    }
-    .hero-content h1 { font-size: 4rem; margin: 1.5rem 0 1rem; }
-
-    .btn {
-      padding: 16px 40px;
-      background: var(--gradient);
-      color: white;
-      border: none;
-      border-radius: 50px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .btn:hover { transform: scale(1.08); }
-
-    section { padding: 100px 20px; max-width: 1300px; margin: 0 auto; }
-    h2 {
-      text-align: center;
-      font-size: 2.8rem;
-      margin-bottom: 3rem;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .services-grid, .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-    }
-    .service-card, .testimonial-card {
-      background: white;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      transition: 0.4s;
-    }
-    .service-card:hover, .testimonial-card:hover {
-      transform: translateY(-10px);
-    }
-
-    .about-text {
-      font-size: 1.1rem;
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .faq {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .faq-item {
-      background: white;
-      margin-bottom: 1rem;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    }
-    .faq-question {
-      padding: 1.2rem 1.5rem;
-      cursor: pointer;
-      font-weight: 600;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .faq-answer {
-      padding: 0 1.5rem 1.5rem;
-      display: none;
-    }
-
-    .contact-form {
-      max-width: 700px;
-      margin: 2rem auto 0;
-      background: white;
-      padding: 2.5rem;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    }
-    input, textarea, select {
-      width: 100%;
-      padding: 14px;
-      margin: 10px 0;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-
-    #success-message {
-      display: none;
-      color: green;
-      font-weight: bold;
-      text-align: center;
-      margin-top: 1rem;
-    }
-
-    .whatsapp-float {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background: #25D366;
-      color: white;
-      width: 65px;
-      height: 65px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2.2rem;
-      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
-      z-index: 9999;
-      text-decoration: none;
-    }
-    .whatsapp-float:hover { transform: scale(1.1); }
-  </style>
+    <style>
+        body { 
+            font-family: 'Segoe UI', sans-serif; 
+            margin: 0; 
+            background: #f4f6f9; 
+            color: #333; 
+        }
+        header {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-img {
+            height: 68px;
+            width: auto;
+            max-width: 220px;
+            image-rendering: crisp-edges;
+        }
+        .brand-text {
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 1.1;
+        }
+        .tagline {
+            font-size: 16px;
+            opacity: 0.95;
+            font-weight: 400;
+        }
+        .hero {
+            background: linear-gradient(135deg, #1e40af, #2563eb);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .services, .recommendations, .contact-email {
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 18px;
+        }
+        .service-card {
+            background: white;
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+        }
+        .service-card h3 {
+            margin: 15px 0 8px;
+            color: #1e3a8a;
+        }
+        .btn {
+            background: #22c55e;
+            color: white;
+            border: none;
+            padding: 13px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 100%;
+        }
+        .btn:hover {
+            background: #16a34a;
+        }
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        .testimonial-card {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            border-left: 5px solid #22c55e;
+        }
+        .client-name {
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        textarea {
+            height: 140px;
+            resize: vertical;
+        }
+        .submit-btn {
+            background: #1e40af;
+            color: white;
+            padding: 14px 32px;
+            font-size: 17px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .submit-btn:hover {
+            background: #1e3a8a;
+        }
+        footer {
+            background: #1e2937;
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <nav>
-      <div class="logo">
-        <img src="logo.png" alt="Kakacyber Logo">
-      </div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
+    <header>
+        <div class="logo-container">
+            <img src="https://i.imgur.com/placeholder-kakacyber.png" 
+                 alt="Kakacyber Logo" 
+                 class="logo-img"
+                 width="220"
+                 height="68"
+                 loading="eager"
+                 fetchpriority="high"
+                 decoding="async">
+            <div>
+                <div class="brand-text">kakacyber</div>
+                <div class="tagline">Your Online Trusted Assistant</div>
+            </div>
+        </div>
+    </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Your Trusted Online Cyber Partner</h1>
-      <p>Fast • Reliable • Professional Services in Nairobi</p>
-      <button class="btn" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
-        Get In Touch
-      </button>
-    </div>
-  </section>
+    <section class="hero">
+        <h2>Fast & Reliable Government Services</h2>
+        <p>KRA • eCitizen • SHA • NSSF • NTSA • HELB • KUCCPS • TSC & More</p>
+        <p><strong>WhatsApp:</strong> 0780 003131 | 0722 550 917</p>
+        <button class="btn" style="width:auto; padding:14px 40px; font-size:18px;">📱 WhatsApp Us Now</button>
+    </section>
 
-  <!-- About Us -->
-  <section id="about">
-    <h2>About Kakacyber</h2>
-    <p class="about-text">
-      We are a trusted cyber and documentation service provider based in Nairobi. 
-      With years of experience helping individuals and businesses with KRA returns, 
-      government services, CV writing, and printing needs. Our mission is simple: 
-      You relax, we handle the stress.
-    </p>
-  </section>
+    <section class="services">
+        <h2 style="text-align:center; color:#1e3a8a; margin-bottom:30px;">Our Services</h2>
+        <div class="service-grid">
+            <div class="service-card"><h3>KRA</h3><p>New KRA PIN, Lost KRA PIN, Email Change & Tax Returns</p><button class="btn">Choose Option</button></div>
+            <div class="service-card"><h3>SHA</h3><p>SHA Registration, Appeals/Punguza Malipo & Status Check</p><button class="btn">Choose Option</button></div>
+            <div class="service-card"><h3>NSSF</h3><p>NSSF Registration, Lost NSSF, Statements & Returns</p><button class="btn">Choose Option</button></div>
+            <div class="service-card"><h3>eCitizen</h3><p>Passports, Birth Certificates & Good Conduct</p><button class="btn">Choose Option</button></div>
+            <div class="service-card"><h3>NTSA</h3><p>Smart Driving License, Vehicle Transfer & PSV</p><button class="btn">Choose Option</button></div>
+            <div class="service-card"><h3>HELB</h3><p>HELB Loans, Repayment & Status Check</p><button class="btn">Choose Option</button></div>
+            <div class="service-card"><h3>KUCCPS</h3><p>University & College Placement Services</p><button class="btn">Choose Option</button></div>
+            <div class="service-card"><h3>TSC</h3><p>Teacher Registration, TPD & Payslip</p><button class="btn">Choose Option</button></div>
+            <div class="service-card"><h3>CRB</h3><p>CRB Status, Clearance & Listing Removal</p><button class="btn">Choose Option</button></div>
+            <div class="service-card"><h3>Business</h3><p>Company Registration & Business Permits</p><button class="btn">Choose Option</button></div>
+            <div class="service-card"><h3>KPLC</h3><p>Electricity Connection, Tokens & Bill Queries</p><button class="btn">Choose Option</button></div>
+            <div class="service-card"><h3>KNEC</h3><p>Check results for KCSE, KCPE, KILEA, KJSEA</p><button class="btn">Choose Option</button></div>
+            <div class="service-card"><h3>Printing</h3><p>Passport Photos, Printing & Lamination</p><button class="btn">Choose Option</button></div>
+            <div class="service-card"><h3>Passport</h3><p>New Passport, Renewal & Lost Passport</p><button class="btn">Choose Option</button></div>
+            <div class="service-card"><h3>Jobs</h3><p>Job Applications, CV Writing & Letters</p><button class="btn">Choose Option</button></div>
+        </div>
+    </section>
 
-  <!-- Services -->
-  <section id="services">
-    <h2>Our Services</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <i class="fas fa-file-invoice"></i>
-        <h3>KRA Returns</h3>
-        <p>Fast, accurate & stress-free tax filing.</p>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-file-alt"></i>
-        <h3>CV Writing</h3>
-        <p>Professional, powerful & impressive CVs.</p>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-id-card"></i>
-        <h3>eCitizen & Government Services</h3>
-        <p>IDs, Passports, NTSA, HELB, NSSF & more.</p>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-print"></i>
-        <h3>Printing & Photocopy</h3>
-        <p>High quality printing and copying services.</p>
-      </div>
-    </div>
-  </section>
+    <section class="recommendations">
+        <h2 style="text-align:center; color:#1e3a8a;">What Our Clients Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card"><p>"Got my KRA PIN and tax returns done in under 30 minutes. Super fast!"</p><div class="client-name">— Jane Muthoni, Westlands</div></div>
+            <div class="testimonial-card"><p>"My new CV helped me get multiple interviews. Excellent work!"</p><div class="client-name">— Kevin Otieno, Nairobi</div></div>
+            <div class="testimonial-card"><p>"Remote passport help was seamless. Highly recommended."</p><div class="client-name">— Mercy Wanjiku, Eastleigh</div></div>
+        </div>
+    </section>
 
-  <!-- Testimonials -->
-  <section style="background:#f8f9ff;">
-    <h2>What Our Clients Say</h2>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <p>"Got my KRA PIN and returns done same day. Very professional!"</p>
-        <strong>— Jane M., Westlands</strong>
-      </div>
-      <div class="testimonial-card">
-        <p>"My new CV helped me land 3 interviews in 2 weeks. Thank you!"</p>
-        <strong>— Kevin O., Nairobi</strong>
-      </div>
-      <div class="testimonial-card">
-        <p>"Fast and reliable. Helped me with my passport application."</p>
-        <strong>— Mercy W., Eastleigh</strong>
-      </div>
-      <div class="testimonial-card">
-        <p>"Best printing quality and quick service. Highly recommended!"</p>
-        <strong>— David K., CBD</strong>
-      </div>
-    </div>
-  </section>
+    <section class="contact-email">
+        <h2 style="text-align:center; color:#1e3a8a; margin-bottom:30px;">Send Us an Email</h2>
+        <div class="contact-form">
+            <form action="https://formspree.io/f/your-form-id" method="POST">
+                <div class="form-group"><label for="name">Your Full Name</label><input type="text" id="name" name="name" required></div>
+                <div class="form-group"><label for="email">Your Email Address</label><input type="email" id="email" name="email" required></div>
+                <div class="form-group"><label for="service">Service Needed</label><input type="text" id="service" name="service" placeholder="e.g. KRA Returns, Passport"></div>
+                <div class="form-group"><label for="message">Message / Details</label><textarea id="message" name="message" required></textarea></div>
+                <button type="submit" class="submit-btn">📧 Send Message</button>
+            </form>
+            <p style="text-align:center; margin-top:20px; color:#555;">Or email us directly at: <strong>kakacyber8@gmail.com</strong></p>
+        </div>
+    </section>
 
-  <!-- Pricing -->
-  <section id="pricing" style="background:#f8f9ff;">
-    <h2>Our Pricing</h2>
-    <div class="price-category">
-      <h3>Prices Available on Request</h3>
-      <p style="margin-top: 1rem; color: #555;">
-        Contact us for current pricing on all services.<br>
-        <strong>Fast & Reliable Service in Nairobi</strong>
-      </p>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section>
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq">
-      <div class="faq-item">
-        <div class="faq-question">How fast can you file my KRA returns? <span>+</span></div>
-        <div class="faq-answer">Most KRA returns are processed within <strong>15-40 minutes</strong>.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">Do I need to come to your office? <span>+</span></div>
-        <div class="faq-answer">No. Most services can be done remotely via WhatsApp/email.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-question">What payment methods do you accept? <span>+</span></div>
-        <div class="faq-answer">M-Pesa, Bank Transfer & Cash.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="contact-bar">
-    <h2>Contact Kakacyber Today</h2>
-    
-    <div class="contact-form">
-      <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-        <input type="text" name="name" placeholder="Your Full Name" required>
-        <input type="tel" name="phone" placeholder="Phone Number" required>
-        <input type="email" name="email" placeholder="Your Email Address">
-        <select name="service" required>
-          <option value="">Select Service Needed</option>
-          <option value="KRA Returns">KRA Returns</option>
-          <option value="CV Writing">CV Writing</option>
-          <option value="eCitizen Services">eCitizen & Government Services</option>
-          <option value="Printing">Printing & Photocopy</option>
-          <option value="Other">Other</option>
-        </select>
-        <textarea name="message" rows="5" placeholder="Tell us more about what you need..." required></textarea>
-        
-        <button type="submit" class="btn" style="width:100%;">Send Message</button>
-      </form>
-      <p id="success-message">✅ Thank you! Your message has been sent successfully.</p>
-    </div>
-
-    <p style="font-size:1.3rem; margin:2rem 0 1rem; text-align:center;">
-      <strong>Email:</strong> kakacyber8@gmail.com<br><br>
-      <strong>WhatsApp / Call:</strong> <a href="https://wa.me/254746486377" style="color:#00ff9d;">0746 486 377</a>
-    </p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="social-icons">
-        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="mailto:kakacyber8@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://wa.me/254746486377"><i class="fab fa-whatsapp"></i></a>
-      </div>
-      <p>&copy; 2026 Kakacyber • Nairobi, Kenya</p>
-      <p>You relax, we handle the rest ❤️</p>
-    </div>
-  </footer>
-
-  <!-- Floating WhatsApp -->
-  <a href="https://wa.me/254746486377" class="whatsapp-float" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-  </a>
-
-  <script>
-    // FAQ Toggle
-    document.querySelectorAll('.faq-question').forEach(question => {
-      question.addEventListener('click', () => {
-        const answer = question.nextElementSibling;
-        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
-      });
-    });
-
-    // Form Success Message
-    const form = document.getElementById('contact-form');
-    const successMsg = document.getElementById('success-message');
-
-    form.addEventListener('submit', () => {
-      setTimeout(() => {
-        successMsg.style.display = 'block';
-        form.reset();
-      }, 800);
-    });
-  </script>
+    <footer>
+        <p><strong>Email:</strong> kakacyber8@gmail.com</p>
+        <p><strong>Call/WhatsApp:</strong> 0746 486 377 | 0780 003131 | 0722 550 917</p>
+        <p>&copy; 2026 Kakacyber - Your Online Trusted Assistant</p>
+    </footer>
 </body>
-</html>
+  </html>
