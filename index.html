@@ -8,51 +8,135 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
-        .hero-bg { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
-        .service-card { transition: all 0.3s; }
-        .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
+        .hero-bg { 
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); 
+        }
+        .service-card { 
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+        }
+        .service-card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15); 
+        }
+        .nav-link {
+            transition: all 0.2s;
+        }
+        .nav-link:hover {
+            color: #2563eb;
+        }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gray-50 font-sans">
 
     <!-- Navbar -->
-    <nav class="bg-white shadow sticky top-0 z-50">
+    <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
-            <h1 class="text-3xl font-bold text-blue-700">KakaCyber</h1>
+            <div class="flex items-center gap-3">
+                <h1 class="text-3xl font-bold text-blue-700">KakaCyber</h1>
+            </div>
             <div class="flex items-center gap-6">
-                <button onclick="showAuthModal()" class="flex items-center gap-2 px-6 py-3 border border-blue-600 text-blue-600 hover:bg-blue-50 rounded-2xl font-medium">
+                <button onclick="showAuthModal()" 
+                        class="flex items-center gap-2 px-6 py-3 border border-blue-600 text-blue-600 hover:bg-blue-50 rounded-2xl font-medium transition">
                     <i class="fas fa-user"></i> Sign In
                 </button>
-                <a href="https://wa.me/254746486377" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full flex items-center gap-2">
-                    <i class="fab fa-whatsapp"></i> Support
+                <a href="https://wa.me/254746486377" target="_blank" 
+                   class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full flex items-center gap-2 font-medium transition">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Support
                 </a>
             </div>
         </div>
     </nav>
 
     <!-- Hero -->
-    <header class="hero-bg text-white py-28 text-center">
+    <header class="hero-bg text-white py-32 text-center">
         <div class="max-w-4xl mx-auto px-6">
-            <h1 class="text-5xl font-bold mb-6">Fast & Reliable Online Government Services</h1>
-            <p class="text-2xl mb-10">KRA • eCitizen • NTSA • HELB • Passport • SHA • NSSF • KUCCPS & More</p>
-            <button onclick="showAuthModal()" class="bg-white text-blue-700 px-10 py-5 rounded-2xl text-xl font-semibold">Get Started Securely</button>
+            <h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                Fast & Reliable Online<br>Government Services
+            </h1>
+            <p class="text-2xl mb-10 text-blue-100">
+                KRA • eCitizen • NTSA • HELB • Passport • SHA • NSSF • KUCCPS & More
+            </p>
+            <button onclick="showAuthModal()" 
+                    class="bg-white text-blue-700 px-10 py-5 rounded-3xl text-xl font-semibold hover:bg-blue-50 transition">
+                Get Started Securely
+            </button>
         </div>
     </header>
 
     <!-- Services -->
     <section id="services" class="py-20 bg-white">
         <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-4xl font-bold text-center mb-12">Our Services</h2>
+            <h2 class="text-4xl font-bold text-center mb-4">Our Services</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+                Professional assistance for all your Kenyan government and official documentation needs.
+            </p>
+            
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Your service cards with "Get Help" buttons -->
-                <!-- (Same as previous - abbreviated for space) -->
-                <div class="service-card bg-white border rounded-3xl p-8 shadow">
+                <div class="service-card bg-white border border-gray-200 rounded-3xl p-8 shadow">
                     <div class="text-5xl mb-4">🧾</div>
                     <h3 class="text-2xl font-semibold mb-2">KRA Services</h3>
-                    <p class="text-gray-600 mb-6">PIN, Returns, Compliance</p>
-                    <a href="https://wa.me/254746486377?text=Hi%20KakaCyber%2C%20I%20need%20help%20with%20KRA%20Services" target="_blank" class="block text-center bg-green-500 hover:bg-green-600 text-white py-3 rounded-2xl font-medium">Get Help</a>
+                    <p class="text-gray-600 mb-6">PIN Registration, Tax Returns, Compliance, iTax Support</p>
+                    <a href="https://wa.me/254746486377?text=Hi%20KakaCyber%2C%20I%20need%20help%20with%20KRA%20Services" 
+                       target="_blank" 
+                       class="block text-center bg-green-500 hover:bg-green-600 text-white py-3 rounded-2xl font-medium">
+                        Get Help
+                    </a>
                 </div>
-                <!-- Add other services similarly -->
+
+                <div class="service-card bg-white border border-gray-200 rounded-3xl p-8 shadow">
+                    <div class="text-5xl mb-4">🪪</div>
+                    <h3 class="text-2xl font-semibold mb-2">eCitizen Services</h3>
+                    <p class="text-gray-600 mb-6">Birth Certificate, Marriage Certificate, ID Application</p>
+                    <a href="https://wa.me/254746486377?text=Hi%20KakaCyber%2C%20I%20need%20help%20with%20eCitizen%20Services" 
+                       target="_blank" 
+                       class="block text-center bg-green-500 hover:bg-green-600 text-white py-3 rounded-2xl font-medium">
+                        Get Help
+                    </a>
+                </div>
+
+                <div class="service-card bg-white border border-gray-200 rounded-3xl p-8 shadow">
+                    <div class="text-5xl mb-4">🚗</div>
+                    <h3 class="text-2xl font-semibold mb-2">NTSA Services</h3>
+                    <p class="text-gray-600 mb-6">Driving License, Vehicle Registration, Logbook Transfer</p>
+                    <a href="https://wa.me/254746486377?text=Hi%20KakaCyber%2C%20I%20need%20help%20with%20NTSA%20Services" 
+                       target="_blank" 
+                       class="block text-center bg-green-500 hover:bg-green-600 text-white py-3 rounded-2xl font-medium">
+                        Get Help
+                    </a>
+                </div>
+
+                <div class="service-card bg-white border border-gray-200 rounded-3xl p-8 shadow">
+                    <div class="text-5xl mb-4">🎓</div>
+                    <h3 class="text-2xl font-semibold mb-2">HELB & KUCCPS</h3>
+                    <p class="text-gray-600 mb-6">Loan Application, University Placement, Bursary Support</p>
+                    <a href="https://wa.me/254746486377?text=Hi%20KakaCyber%2C%20I%20need%20help%20with%20HELB%20%26%20KUCCPS" 
+                       target="_blank" 
+                       class="block text-center bg-green-500 hover:bg-green-600 text-white py-3 rounded-2xl font-medium">
+                        Get Help
+                    </a>
+                </div>
+
+                <div class="service-card bg-white border border-gray-200 rounded-3xl p-8 shadow">
+                    <div class="text-5xl mb-4">📄</div>
+                    <h3 class="text-2xl font-semibold mb-2">Passport & Visas</h3>
+                    <p class="text-gray-600 mb-6">New Passport, Renewal, Lost Passport Replacement</p>
+                    <a href="https://wa.me/254746486377?text=Hi%20KakaCyber%2C%20I%20need%20help%20with%20Passport" 
+                       target="_blank" 
+                       class="block text-center bg-green-500 hover:bg-green-600 text-white py-3 rounded-2xl font-medium">
+                        Get Help
+                    </a>
+                </div>
+
+                <div class="service-card bg-white border border-gray-200 rounded-3xl p-8 shadow">
+                    <div class="text-5xl mb-4">🏢</div>
+                    <h3 class="text-2xl font-semibold mb-2">Business Registration</h3>
+                    <p class="text-gray-600 mb-6">Company Registration, PIN, Tax Compliance</p>
+                    <a href="https://wa.me/254746486377?text=Hi%20KakaCyber%2C%20I%20need%20help%20with%20Business%20Registration" 
+                       target="_blank" 
+                       class="block text-center bg-green-500 hover:bg-green-600 text-white py-3 rounded-2xl font-medium">
+                        Get Help
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -66,7 +150,7 @@
             </div>
 
             <div id="authWarning" class="bg-yellow-100 border border-yellow-400 p-8 rounded-3xl text-center mb-10">
-                Please <button onclick="showAuthModal()" class="underline font-bold">Sign In</button> to view your dashboard.
+                Please <button onclick="showAuthModal()" class="underline font-bold text-yellow-700">Sign In</button> to view your dashboard.
             </div>
 
             <div id="omsContent" class="hidden">
@@ -86,15 +170,18 @@
                                 <option>eCitizen Services</option>
                                 <option>NTSA Services</option>
                                 <option>HELB & KUCCPS</option>
+                                <option>Passport Services</option>
                                 <option>Business Registration</option>
                                 <option>CV Writing</option>
                             </select>
-                            <textarea id="description" class="p-4 border rounded-2xl" placeholder="Describe your requirements..." required></textarea>
-                            <button type="submit" class="md:col-span-2 bg-green-600 hover:bg-green-700 text-white py-4 rounded-2xl font-medium">Submit Request</button>
+                            <textarea id="description" class="p-4 border rounded-2xl h-32" placeholder="Describe your requirements..." required></textarea>
+                            <button type="submit" class="md:col-span-2 bg-green-600 hover:bg-green-700 text-white py-4 rounded-2xl font-medium text-lg">
+                                Submit Request
+                            </button>
                         </form>
                     </div>
 
-                    <!-- Requests Tracking Dashboard -->
+                    <!-- Requests Tracking -->
                     <div>
                         <h4 class="font-semibold mb-4">My Requests</h4>
                         <div id="requestsList" class="space-y-4"></div>
@@ -106,26 +193,34 @@
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-16 text-center">
-        <p class="text-2xl">Ready to get started?</p>
-        <a href="https://wa.me/254746486377" target="_blank" class="inline-block mt-6 bg-green-500 px-12 py-5 rounded-3xl text-xl">Get Help on WhatsApp</a>
-        <p class="mt-12 text-gray-400">© 2026 KakaCyber • All Rights Reserved</p>
+        <p class="text-2xl mb-6">Ready to get started?</p>
+        <a href="https://wa.me/254746486377" target="_blank" 
+           class="inline-block bg-green-500 hover:bg-green-600 px-12 py-5 rounded-3xl text-xl font-medium mb-8">
+            Get Help on WhatsApp
+        </a>
+        <p class="text-gray-400">© 2026 KakaCyber • All Rights Reserved</p>
     </footer>
 
     <!-- Auth Modal -->
     <div id="authModal" class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-50">
         <div class="bg-white rounded-3xl p-10 w-full max-w-md mx-4">
             <h3 class="text-2xl font-bold mb-6">Sign In / Register</h3>
-            <input id="emailInput" type="email" placeholder="Your email address" class="w-full p-4 border rounded-2xl mb-4">
-            <button onclick="signInWithEmail()" class="w-full bg-blue-600 text-white py-4 rounded-2xl">Send Magic Link</button>
-            <button onclick="hideAuthModal()" class="mt-6 text-gray-500">Close</button>
+            <input id="emailInput" type="email" placeholder="Your email address" 
+                   class="w-full p-4 border rounded-2xl mb-4 focus:outline-none focus:border-blue-500">
+            <button onclick="signInWithEmail()" 
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-2xl font-medium">
+                Send Magic Link
+            </button>
+            <button onclick="hideAuthModal()" class="mt-6 text-gray-500 hover:text-gray-700">Close</button>
         </div>
     </div>
 
     <script>
-        const SUPABASE_URL = 'https://your-project.supabase.co';
-        const SUPABASE_ANON_KEY = 'eyJ...'; // Replace with your real key
-        const supabase = Supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        // === Supabase Configuration ===
+        const SUPABASE_URL = 'https://your-project.supabase.co';     // ← Replace
+        const SUPABASE_ANON_KEY = 'eyJ...';                        // ← Replace
 
+        const supabase = Supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
         let currentUser = null;
 
         supabase.auth.onAuthStateChange((_, session) => {
@@ -137,21 +232,28 @@
             const loggedIn = !!currentUser;
             document.getElementById('omsContent').classList.toggle('hidden', !loggedIn);
             document.getElementById('authWarning').classList.toggle('hidden', loggedIn);
+            
             if (loggedIn) {
                 document.getElementById('userName').textContent = currentUser.email?.split('@')[0] || 'Client';
                 loadRequests();
             }
         }
 
-        function showAuthModal() { document.getElementById('authModal').classList.remove('hidden'); }
-        function hideAuthModal() { document.getElementById('authModal').classList.add('hidden'); }
+        function showAuthModal() {
+            document.getElementById('authModal').classList.remove('hidden');
+        }
+
+        function hideAuthModal() {
+            document.getElementById('authModal').classList.add('hidden');
+        }
 
         async function signInWithEmail() {
-            const email = document.getElementById('emailInput').value;
+            const email = document.getElementById('emailInput').value.trim();
             if (!email) return alert("Please enter your email");
+            
             const { error } = await supabase.auth.signInWithOtp({ email });
             if (error) alert(error.message);
-            else alert("Magic link sent! Check your email.");
+            else alert("Magic link sent! Please check your email.");
         }
 
         async function logout() {
@@ -172,8 +274,9 @@
             };
 
             const { error } = await supabase.from('service_requests').insert([data]);
-            if (error) alert(error.message);
-            else {
+            if (error) {
+                alert("Error: " + error.message);
+            } else {
                 alert("Request submitted successfully!");
                 loadRequests();
                 e.target.reset();
@@ -183,25 +286,34 @@
         // Load requests
         async function loadRequests() {
             if (!currentUser) return;
-            const { data } = await supabase
+            
+            const { data, error } = await supabase
                 .from('service_requests')
                 .select('*')
                 .eq('user_id', currentUser.id)
                 .order('created_at', { ascending: false });
 
             const container = document.getElementById("requestsList");
+            
+            if (error) {
+                container.innerHTML = `<p class="text-red-500">Failed to load requests.</p>`;
+                return;
+            }
+
             container.innerHTML = data?.length 
                 ? data.map(r => `
                     <div class="p-5 border rounded-2xl flex justify-between items-center">
                         <div>
                             <p class="font-medium">${r.service_type}</p>
                             <p class="text-sm text-gray-500">${new Date(r.created_at).toLocaleDateString()}</p>
+                            <p class="text-sm text-gray-600 mt-1">${r.description.substring(0, 80)}...</p>
                         </div>
-                        <span class="px-6 py-2 bg-yellow-100 text-yellow-700 rounded-full text-sm">${r.status}</span>
+                        <span class="px-6 py-2 bg-yellow-100 text-yellow-700 rounded-full text-sm font-medium">${r.status}</span>
                     </div>`).join('')
                 : '<p class="text-gray-500 italic">No requests yet. Submit one above.</p>';
         }
 
+        // Initialize
         window.onload = updateUI;
     </script>
 </body>
